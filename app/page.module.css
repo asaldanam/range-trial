@@ -1,0 +1,10 @@
+.home {
+    height: 100dvh;
+    width: 100dvw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+}

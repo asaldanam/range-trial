@@ -1,0 +1,10 @@
+.exercise2 {
+    height: 100dvh;
+    width: 100dvw;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}

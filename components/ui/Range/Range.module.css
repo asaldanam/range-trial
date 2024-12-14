@@ -1,0 +1,125 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    --bar-height: 6px;
+    --bar-min-width: 10rem;
+}
+
+/** Bar */
+.bar {
+    position: relative;
+    top: 1px;
+    min-width: var(--bar-min-width);
+    height: var(--bar-height);
+}
+
+/** Line */
+.line {
+    position: absolute;
+    height: var(--bar-height);
+    width: 100%;
+    border-radius: 99px;
+}
+
+.lineRange {
+    background: black;
+}
+
+.lineShadow {
+    background: lightgrey;
+}
+
+/** Point */
+.point {
+    position: absolute;
+    width: 1px;
+    height: var(--bar-height);
+
+    background: white;
+    opacity: 0.75;
+}
+
+/** Handler */
+.handler {
+    position: absolute;
+    top: -2px;
+
+    width: 10px;
+    height: 10px;
+    border: 0;
+    border-radius: 50%;
+
+    background: black;
+    cursor: pointer;
+
+    transition: transform 0.15s;
+    transform: translateX(-50%);
+    transform-origin: center center;
+}
+
+.handler::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: black;
+
+    transition: all 0.25s;
+
+    opacity: 0;
+    transform: scale(1);
+}
+
+/* .handlerActive {
+    transform: scale(1.5);
+} */
+
+.handler:hover::before,
+.handlerActive::before {
+    opacity: 0.25;
+    transform: scale(1.75);
+}
+
+/** Input */
+.inputContainer {
+    flex: 1;
+
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.input {
+    text-align: right;
+    font-size: inherit;
+    padding: 2px;
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+    min-width: 2rem;
+}
+
+.input:disabled {
+    background: none;
+    color: inherit;
+}
+
+.input:hover:not(:disabled) {
+    background: hsl(0, 0%, 95%);
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input[type=number] {
+    -moz-appearance: textfield;
+}
