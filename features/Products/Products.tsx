@@ -17,7 +17,7 @@ export interface ProductsProps {
 export default function Products(props: ProductsProps) {
     const { qs } = useQueryString();
 
-    const { data: products } = useSWR<ProductsGetResponse>(
+    const { data: products, isLoading } = useSWR<ProductsGetResponse>(
         `api/products${qs}`, //
         api.get,
         { fallbackData: props.products }
@@ -32,6 +32,7 @@ export default function Products(props: ProductsProps) {
             </aside>
 
             <section>
+                {!isLoading && list?.length === 0 && <p className={S.noProducts}>No products found</p>}
                 <ul className={S.products}>
                     {list?.map((product) => (
                         <li key={product.id} className={S.product}>

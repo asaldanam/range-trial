@@ -48,3 +48,11 @@
     font-size: 1.25rem;
     margin: 0.5rem 0;
 }
+
+.noProducts {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: var(--foreground-muted);
+    margin: 1rem 0;
+}
