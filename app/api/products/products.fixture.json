@@ -1,0 +1,98 @@
+[
+    {
+        "id": "1",
+        "name": "Abrigo lana manteco cuello pelo desmontable",
+        "price": 70.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "2",
+        "name": "Abrigo lana manteco cuello pelo desmontable",
+        "price": 69.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "3",
+        "name": "Abrigo handmade cinturón",
+        "price": 49.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "4",
+        "name": "Chaqueta acolchada con capucha",
+        "price": 55.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "5",
+        "name": "Cazadora vaquera clásica",
+        "price": 45.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "6",
+        "name": "Parka impermeable con forro",
+        "price": 60.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "7",
+        "name": "Gabardina con cinturón",
+        "price": 70.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "8",
+        "name": "Blazer ajustado",
+        "price": 35.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "9",
+        "name": "Chaqueta de cuero sintético",
+        "price": 65.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "10",
+        "name": "Abrigo de lana con botones",
+        "price": 50.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "11",
+        "name": "Chaqueta bomber",
+        "price": 5.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    },
+    {
+        "id": "12",
+        "name": "Abrigo largo con capucha",
+        "price": 1.99,
+        "image": {
+            "url": "https://dummyimage.com/600x600/000/fff"
+        }
+    }
+]

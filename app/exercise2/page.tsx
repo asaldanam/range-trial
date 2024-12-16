@@ -1,5 +1,5 @@
-import Exercise2 from './components/Excercise2';
+import Products from 'features/Products';
 
 export default function Page() {
-    return <Exercise2 />;
+    return <Products sectionId="exercise2" />;
 }

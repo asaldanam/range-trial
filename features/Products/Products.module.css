@@ -1,0 +1,36 @@
+.main {
+    padding: 1rem;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 18rem 1fr;
+    column-gap: 2rem;
+}
+
+.aside {
+    border-right: 1px solid var(--background-muted);
+}
+
+.products {
+    list-style: none;
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    gap: 0.5rem;
+}
+
+.productImage {
+    width: 100%;
+    object-fit: cover;
+}
+
+.productName {
+    font-weight: 300;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.productPrice {
+    font-weight: 300;
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+}

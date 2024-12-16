@@ -1,0 +1,17 @@
+/** Filters **/
+.filters {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.filtersTitle {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.range {
+    display: flex;
+    gap: 1rem;
+}

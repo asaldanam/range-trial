@@ -1,19 +1,23 @@
 .container {
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 1rem;
     width: 100%;
+    max-width: 100%;
 
     --bar-height: 3px;
     --bar-min-width: 10rem;
+
+    padding-bottom: var(--bar-height);
 }
 
 /** Bar */
 .bar {
     flex: 1 1 100%;
-    min-width: 100%;
+    max-width: 100%;
     position: relative;
     min-width: var(--bar-min-width);
     height: var(--bar-height);
@@ -110,16 +114,23 @@
     border: 0;
     outline: none;
     border-radius: 4px;
-    background: hsl(0, 0%, 95%);
+    background: var(--background-muted);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
 .input:disabled {
-    background: none;
     color: inherit;
+    cursor: default;
 }
 
 .input:hover:not(:disabled) {
-    background: hsl(0, 0%, 95%);
+    box-shadow: 0 0 0 2px var(--foreground-muted);
+}
+
+.input:focus:not(:disabled),
+.inputActive {
+    box-shadow: 0 0 0 2px var(--foreground);
 }
 
 .input::-webkit-outer-spin-button,

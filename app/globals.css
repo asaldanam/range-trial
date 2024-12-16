@@ -7,11 +7,12 @@
   --color-primary: #131313;
   --color-white: #ffffff;
   --color-lightgray: hsl(0, 0%, 95%);
-  --color-darkgray: hsl(0, 0%, 20%);
+  --color-darkgray: hsl(0, 0%, 50%);
 
   --background: var(--color-white);
   --background-muted: var(--color-lightgray);
   --foreground: var(--color-primary);
+  --foreground-muted: var(--color-darkgray);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,6 +20,7 @@
     --background: var(--color-primary);
     --background-muted: var(--color-darkgray);
     --foreground: var(--color-white);
+    --foreground-muted: var(--color-lightgray);
   }
 }
 
