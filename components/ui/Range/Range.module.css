@@ -1,16 +1,20 @@
 .container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 0.75rem;
+    width: 100%;
 
-    --bar-height: 6px;
+    --bar-height: 3px;
     --bar-min-width: 10rem;
 }
 
 /** Bar */
 .bar {
+    flex: 1 1 100%;
+    min-width: 100%;
     position: relative;
-    top: 1px;
     min-width: var(--bar-min-width);
     height: var(--bar-height);
 }
@@ -34,27 +38,27 @@
 /** Point */
 .point {
     position: absolute;
-    width: 1px;
+    width: 2px;
     height: var(--bar-height);
 
     background: white;
-    opacity: 0.75;
 }
 
 /** Handler */
 .handler {
     position: absolute;
-    top: -2px;
+    top: -4px;
 
-    width: 10px;
-    height: 10px;
+
+    width: 11px;
+    height: 11px;
     border: 0;
     border-radius: 50%;
 
     background: black;
     cursor: pointer;
 
-    transition: transform 0.15s;
+    transition: transform 0.2s ease-in-out;
     transform: translateX(-50%);
     transform-origin: center center;
 }
@@ -64,8 +68,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background-color: black;
 
@@ -82,27 +86,31 @@
 .handler:hover::before,
 .handlerActive::before {
     opacity: 0.25;
-    transform: scale(1.75);
+    transform: scale(2.5);
 }
 
 /** Input */
 .inputContainer {
-    flex: 1;
+    flex: 0;
 
     font-size: 0.875rem;
+    font-weight: 300;
     display: flex;
     align-items: center;
     gap: 2px;
 }
 
 .input {
-    text-align: right;
+    text-align: center;
+    min-width: 1rem;
     font-size: inherit;
-    padding: 2px;
+    font-weight: inherit;
+    font-family: inherit;
+    padding: 3px;
     border: 0;
     outline: none;
     border-radius: 4px;
-    min-width: 2rem;
+    background: hsl(0, 0%, 95%);
 }
 
 .input:disabled {
@@ -121,5 +129,5 @@
 }
 
 .input[type=number] {
-    -moz-appearance: textfield;
+    appearance: textfield;
 }

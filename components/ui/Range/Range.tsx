@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import S from './Range.module.css';
 import { useSlider } from './hooks/useSlider';
 import { useRange } from './hooks/useRange';
 
-export type RangeProps = {
+export interface RangeProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     start?: number;
     end?: number;
 
@@ -14,9 +14,9 @@ export type RangeProps = {
     range?: number[];
     unit?: string;
     onChange?: (values: { start: number; end: number }) => void;
-};
+}
 
-const Range = (props: RangeProps) => {
+const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
     const { range, max, min } = useRange(props);
 
     const [start, setStart] = useState(props.start || min);
@@ -47,11 +47,11 @@ const Range = (props: RangeProps) => {
 
     // Show points only when dragging and points are less than 30
     const showPoints = slider.points.length <= 30 && slider.dragging;
-
     return (
         <div
+            {...(props as React.HTMLAttributes<HTMLDivElement>)}
             role="slider"
-            className={S.container}
+            className={`${S.container} ${props.className || ''}`}
             aria-valuemin={min}
             aria-valuemax={max}
             aria-valuenow={start}
@@ -64,9 +64,24 @@ const Range = (props: RangeProps) => {
                     onChange={({ target }) => updateStart(Number(target.value))}
                     className={S.input}
                     type="number"
-                    size={max.toString().length}
+                    style={{ width: start.toString().length * 12 }}
                     min={min}
                     max={end}
+                    disabled={!!props.range}
+                />
+                <div className={S.unit}>{props.unit}</div>
+            </div>
+
+            <div className={S.inputContainer}>
+                <input
+                    aria-label="end"
+                    value={end}
+                    onChange={({ target }) => updateEnd(Number(target.value))}
+                    className={S.input}
+                    type="number"
+                    style={{ width: end.toString().length * 12 }}
+                    min={start}
+                    max={max}
                     disabled={!!props.range}
                 />
                 <div className={S.unit}>{props.unit}</div>
@@ -108,23 +123,8 @@ const Range = (props: RangeProps) => {
                     onMouseDown={() => slider.setDragging('end')}
                 />
             </div>
-
-            <div className={S.inputContainer}>
-                <input
-                    aria-label="end"
-                    value={end}
-                    onChange={({ target }) => updateEnd(Number(target.value))}
-                    className={S.input}
-                    type="number"
-                    size={max.toString().length}
-                    min={start}
-                    max={max}
-                    disabled={!!props.range}
-                />
-                <div className={S.unit}>{props.unit}</div>
-            </div>
         </div>
     );
-};
+});
 
 export default Range;

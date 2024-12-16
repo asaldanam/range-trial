@@ -17,7 +17,7 @@ export default async function Exercise1() {
 
     return (
         <div className={S.exercise1}>
-            <Range unit="€" min={excercise1.data.min} max={excercise1.data.max} />
+            <Range className={S.range} unit="€" min={excercise1.data.min} max={excercise1.data.max} />
         </div>
     );
 }

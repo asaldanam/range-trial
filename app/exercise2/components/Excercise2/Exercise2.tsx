@@ -17,7 +17,7 @@ export default async function Exercise2() {
 
     return (
         <div className={S.exercise2}>
-            <Range unit="€" range={excercise2.data.range} />
+            <Range className={S.range} unit="€" range={excercise2.data.range} />
         </div>
     );
 }
