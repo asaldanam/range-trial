@@ -22,12 +22,14 @@ export async function GET(request: Request) {
                 if (search['price.greaterThanOrEqual']) {
                     return product.price >= Number(search['price.greaterThanOrEqual']);
                 }
+                return true;
             })
             //
             .filter((product) => {
                 if (search['price.lessThanOrEqual']) {
                     return product.price <= Number(search['price.lessThanOrEqual']);
                 }
+                return true;
             })
     };
 

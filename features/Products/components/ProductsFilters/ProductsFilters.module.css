@@ -1,9 +1,11 @@
 /** Filters **/
 .filters {
-    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
+    position: sticky;
+    top: 4rem;
+    padding: 1rem 0;
 }
 
 .filtersTitle {

@@ -1,9 +1,8 @@
 import useSWR from 'swr';
 
 import { ProductsGetResponse } from '@/app/api/products/route';
-import { api } from '@/lib/api';
 import useQueryParameters from '@/lib/useQueryParameters';
-import { ProductsProps } from '../Products';
+import { api } from '@/lib/api';
 
 export function useProducts() {
     const { search } = useQueryParameters();
