@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-
 export type ProductsFiltersGetResponse = {
     price: {
         min?: number;
