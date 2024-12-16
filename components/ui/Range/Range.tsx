@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import S from './Range.module.css';
 import { useSlider } from './hooks/useSlider';
 import { useRange } from './hooks/useRange';
@@ -48,6 +48,14 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
         emitOnChange
     });
 
+    useEffect(() => {
+        setStart(props.start || min);
+    }, [props.start]);
+
+    useEffect(() => {
+        setEnd(props.end || max);
+    }, [props.end]);
+
     // Show points only when dragging and points are less than 30
     const showPoints = slider.points.length <= 30 && slider.dragging;
     return (
@@ -65,8 +73,8 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
                     aria-label="start"
                     value={start}
                     onChange={({ target }) => {
-                        updateStart(Number(target.value));
-                        emitOnChange();
+                        updateStart(parseInt(target.value));
+                        setTimeout(emitOnChange, 0);
                     }}
                     className={`${S.input} ${slider.dragging === 'start' ? S.inputActive : ''}`}
                     type="number"
@@ -83,8 +91,8 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
                     aria-label="end"
                     value={end}
                     onChange={({ target }) => {
-                        updateEnd(Number(target.value));
-                        emitOnChange();
+                        updateEnd(parseInt(target.value));
+                        setTimeout(emitOnChange, 0);
                     }}
                     className={`${S.input} ${slider.dragging === 'end' ? S.inputActive : ''}`}
                     type="number"

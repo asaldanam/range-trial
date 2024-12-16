@@ -1,19 +1,29 @@
 'use client';
 
 import Image from 'next/image';
+import useSWR from 'swr';
+
+import { ProductsGetResponse } from '@/app/api/products/route';
+import { api } from '@/lib/api';
+import useQueryString from '@/lib/useQueryString';
 import S from './Products.module.css';
 import ProductsFilters from './components/ProductsFilters';
 
-import { useProducts } from './hooks/useProducts';
-
 export interface ProductsProps {
+    products: ProductsGetResponse;
     sectionId: string;
 }
 
 export default function Products(props: ProductsProps) {
-    const products = useProducts();
+    const { qs } = useQueryString();
 
-    const list = products.data?.content;
+    const { data: products } = useSWR<ProductsGetResponse>(
+        `api/products${qs}`, //
+        api.get,
+        { fallbackData: props.products }
+    );
+
+    const list = products?.content;
 
     return (
         <main className={S.main}>

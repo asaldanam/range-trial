@@ -1,14 +1,8 @@
+import { Product } from './Product';
 import ProductsFixture from './products.fixture.json';
 
 export type ProductsGetResponse = {
-    content: Array<{
-        id: string;
-        name: string;
-        price: number;
-        image: {
-            url: string;
-        };
-    }>;
+    content: Array<Product>;
 };
 
 export async function GET(request: Request) {
@@ -20,14 +14,14 @@ export async function GET(request: Request) {
             //
             .filter((product) => {
                 if (search['price.greaterThanOrEqual']) {
-                    return product.price >= Number(search['price.greaterThanOrEqual']);
+                    return product.price >= parseInt(search['price.greaterThanOrEqual']);
                 }
                 return true;
             })
             //
             .filter((product) => {
                 if (search['price.lessThanOrEqual']) {
-                    return product.price <= Number(search['price.lessThanOrEqual']);
+                    return product.price <= parseInt(search['price.lessThanOrEqual']);
                 }
                 return true;
             })
