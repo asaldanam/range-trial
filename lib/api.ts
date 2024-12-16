@@ -1,6 +1,8 @@
+const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:8080';
+
 export const api = {
     get: async <Data>(input: RequestInfo | URL, init?: Omit<RequestInit, 'method'>): Promise<Data> => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/${input}`, {
+        const response = await fetch(`${NEXT_PUBLIC_BASE_URL}/${input}`, {
             ...init,
             method: 'GET',
             cache: 'no-cache'
