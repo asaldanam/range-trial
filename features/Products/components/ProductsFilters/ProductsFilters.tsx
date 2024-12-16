@@ -27,9 +27,9 @@ export default function ProductsFilters(props: ProductsFiltersProps) {
             {filters?.price && (
                 <Range
                     start={
-                        search['price.greaterThanOrEqual'] ? parseInt(search['price.greaterThanOrEqual']) : undefined
+                        search['price.greaterThanOrEqual'] ? parseFloat(search['price.greaterThanOrEqual']) : undefined
                     }
-                    end={search['price.lessThanOrEqual'] ? parseInt(search['price.lessThanOrEqual']) : undefined}
+                    end={search['price.lessThanOrEqual'] ? parseFloat(search['price.lessThanOrEqual']) : undefined}
                     onChange={({ end, start }) => {
                         setSearchParams({
                             ...(start && { 'price.greaterThanOrEqual': String(start) }),

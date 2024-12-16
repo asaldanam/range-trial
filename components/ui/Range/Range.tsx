@@ -73,7 +73,7 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
                     aria-label="start"
                     value={start}
                     onChange={({ target }) => {
-                        updateStart(parseInt(target.value));
+                        updateStart(parseFloat(target.value));
                         setTimeout(emitOnChange, 0);
                     }}
                     className={`${S.input} ${slider.dragging === 'start' ? S.inputActive : ''}`}
@@ -91,7 +91,7 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
                     aria-label="end"
                     value={end}
                     onChange={({ target }) => {
-                        updateEnd(parseInt(target.value));
+                        updateEnd(parseFloat(target.value));
                         setTimeout(emitOnChange, 0);
                     }}
                     className={`${S.input} ${slider.dragging === 'end' ? S.inputActive : ''}`}

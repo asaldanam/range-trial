@@ -14,14 +14,14 @@ export async function GET(request: Request) {
             //
             .filter((product) => {
                 if (search['price.greaterThanOrEqual']) {
-                    return product.price >= parseInt(search['price.greaterThanOrEqual']);
+                    return product.price >= parseFloat(search['price.greaterThanOrEqual']);
                 }
                 return true;
             })
             //
             .filter((product) => {
                 if (search['price.lessThanOrEqual']) {
-                    return product.price <= parseInt(search['price.lessThanOrEqual']);
+                    return product.price <= parseFloat(search['price.lessThanOrEqual']);
                 }
                 return true;
             })
