@@ -22,18 +22,20 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
     const [start, setStart] = useState(props.start || min);
     const [end, setEnd] = useState(props.start || max);
 
+    const emitOnChange = () => {
+        props.onChange?.({ start, end });
+    };
+
     const updateStart = (value: number) => {
         if (value < min) return setStart(min);
         if (value > end) return setStart(end);
         setStart((prev) => value ?? prev);
-        props.onChange?.({ start: value, end });
     };
 
     const updateEnd = (value: number) => {
         if (value > max) return setEnd(max);
         if (value < start) return setEnd(start);
         setEnd((prev) => value ?? prev);
-        props.onChange?.({ start, end: value });
     };
 
     const slider = useSlider({
@@ -42,7 +44,8 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
         min,
         max,
         updateStart,
-        updateEnd
+        updateEnd,
+        emitOnChange
     });
 
     // Show points only when dragging and points are less than 30
@@ -61,7 +64,10 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
                 <input
                     aria-label="start"
                     value={start}
-                    onChange={({ target }) => updateStart(Number(target.value))}
+                    onChange={({ target }) => {
+                        updateStart(Number(target.value));
+                        emitOnChange();
+                    }}
                     className={`${S.input} ${slider.dragging === 'start' ? S.inputActive : ''}`}
                     type="number"
                     style={{ width: start.toString().replace('.', '').length * 14 }}
@@ -76,7 +82,10 @@ const Range = forwardRef<HTMLDivElement, RangeProps>((props, ref) => {
                 <input
                     aria-label="end"
                     value={end}
-                    onChange={({ target }) => updateEnd(Number(target.value))}
+                    onChange={({ target }) => {
+                        updateEnd(Number(target.value));
+                        emitOnChange();
+                    }}
                     className={`${S.input} ${slider.dragging === 'end' ? S.inputActive : ''}`}
                     type="number"
                     style={{ width: end.toString().replace('.', '').length * 14 }}

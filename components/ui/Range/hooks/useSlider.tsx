@@ -7,6 +7,7 @@ export function useSlider(props: {
     isGivenRange: boolean;
     min: number;
     max: number;
+    emitOnChange: () => void;
     updateStart: (value: number) => void;
     updateEnd: (value: number) => void;
 }) {
@@ -87,6 +88,7 @@ export function useSlider(props: {
         setDragging(null);
         startX.current = 0;
         endX.current = 0;
+        props.emitOnChange();
     };
 
     useEffect(() => {
@@ -113,7 +115,7 @@ export function useSlider(props: {
             document.removeEventListener('mousemove', handleDrag);
             document.removeEventListener('mouseup', handleDrop);
         };
-    }, [dragging]);
+    }, [dragging, props.emitOnChange]);
 
     return {
         /** Start range handler Ref */
