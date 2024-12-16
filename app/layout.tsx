@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { SWRConfig } from 'swr';
 
-import { api } from '@/lib/api';
 import './globals.css';
+import Logo from '@/assets/logo.svg';
 import S from './layout.module.css';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
     title: 'Asaldanam Mango range trial',
@@ -25,6 +25,7 @@ export default function RootLayout({
                             <Link href="/exercise1">EXERCISE 1</Link>
                             <Link href="/exercise2">EXERCISE 2</Link>
                         </nav>
+                        <Image src={Logo} alt="Logo" className={S.logo} />
                     </header>
                     {children}
                 </div>
